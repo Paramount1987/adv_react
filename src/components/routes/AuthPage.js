@@ -5,7 +5,7 @@ import { signUp, moduleName } from '../../ducks/auth';
 
 import SignInForm from '../auth/SigninForm';
 import SignUpForm from '../auth/SignupForm';
-import Loader from '../Loader';
+import Loader from '../common/Loader';
 
 class AuthPage extends Component {
   state = {  }
