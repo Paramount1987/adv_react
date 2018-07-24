@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 import {appName} from '../config';
 import { Record } from 'immutable';
-// import store from '../redux';
+import { all } from 'redux-saga/effects';
 
 const ReducerRecord = Record({
   user: null,
@@ -59,3 +59,9 @@ firebase.auth().onAuthStateChanged(user => {
     payload: {user},
   })
 });
+
+export const saga = function * () {
+  yield all([
+
+  ]);
+}
