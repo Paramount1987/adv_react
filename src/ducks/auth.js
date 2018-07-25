@@ -42,7 +42,7 @@ export function signUp (email, password) {
   }
 }
 
-export const signUpSaga = function * () {
+export const signUpSaga = function * () { 
   const auth = firebase.auth();
 
   while(true) {
@@ -50,7 +50,7 @@ export const signUpSaga = function * () {
 
     try {
       const user = yield call(
-        [auth, auth.createUserWithEmailAndPassword],
+        [auth, auth.createUserWithEmailAndPassword], 
         action.payload.email, action.payload.password
       );
   
@@ -94,6 +94,6 @@ firebase.auth().onAuthStateChanged(user => {
 
 export const saga = function * () {
   yield all([
-    signUpSaga
+    signUpSaga()
   ]);
 }
