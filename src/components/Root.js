@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import AdminPage from './routes/AdminPage';
 import AuthPage from './routes/AuthPage';
 import PersonPage from './routes/PersonPage';
+import EventsPage from './routes/EventsPage';
 import ProtectedRoute from './common/ProtectedRoute';
 
 import { moduleName, signOut } from '../ducks/auth';
@@ -24,8 +25,9 @@ class Root extends Component {
       <div>
         {btn}
         <ProtectedRoute path="/admin"  component={AdminPage} />
+        <ProtectedRoute path="/person"  component={PersonPage} />
+        <ProtectedRoute path="/events"  component={EventsPage} />
         <Route path="/auth"  component={AuthPage} />
-        <Route path="/person"  component={PersonPage} />
       </div>
     );
   }
@@ -33,4 +35,4 @@ class Root extends Component {
 
 export default connect(state => ({
 signedIn: !!state[moduleName].user
-}), {signOut})(Root);
+}), {signOut}, null, {pure: false})(Root);
